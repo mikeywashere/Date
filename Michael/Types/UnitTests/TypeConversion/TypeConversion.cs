@@ -12,6 +12,9 @@ namespace Michael.Types.UnitTests.TypeConversion
     [Trait("Store", "Integer")]
     public class TypeConversion
     {
+        private DateFactory _factory = new DateFactory(DateFactory.DateStorage.Integer);
+
+
         #region Public Methods
 
         [Fact]

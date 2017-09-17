@@ -7,10 +7,10 @@ using Shouldly;
 using Xunit;
 
 // ReSharper disable once CheckNamespace
-namespace Michael.Types.UnitTests.HumanReadable.OperatorOverload
+namespace Michael.Types.UnitTests.HumanReadable.Methods
 {
     [Trait("Store", "HumanReadable")]
-    public class Plus
+    public class SubtractDays
     {
         #region Public Constructors
 
@@ -20,34 +20,32 @@ namespace Michael.Types.UnitTests.HumanReadable.OperatorOverload
 
         #region Public Methods
 
-        [Fact]
-        public void Can_call_operator_overload_plus_to_add_1_day()
+        public void Can_call_SubtractDays_to_subtract_1_day()
         {
-            var date = _factory.Create(1965, 11, 1);
-            date = date + 1;
+            var date = _factory.Create(1965, 11, 2);
+            date = date.SubtractDays(1);
             date.Year.ShouldBe(1965);
             date.Month.ShouldBe(11);
-            date.Day.ShouldBe(2);
+            date.Day.ShouldBe(1);
         }
 
         [Fact]
-        public void Can_call_operator_overload_plus_to_add_10_day()
+        public void Can_call_SubtractDays_to_subtract_10_days()
         {
-            var date = new Date(1965, 11, 1);
-            date = date + 10;
+            var date = _factory.Create(1965, 11, 11);
+            date = date.SubtractDays(10);
             date.Year.ShouldBe(1965);
             date.Month.ShouldBe(11);
-            date.Day.ShouldBe(11);
+            date.Day.ShouldBe(1);
         }
 
-        [Fact]
-        public void Can_call_operator_overload_plus_to_add_100_day()
+        public void Can_call_SubtractDays_to_subtract_100_days()
         {
-            var date = new Date(1965, 11, 1);
-            date = date + 100;
-            date.Year.ShouldBe(1966);
-            date.Month.ShouldBe(2);
-            date.Day.ShouldBe(9);
+            var date = _factory.Create(1966, 2, 9);
+            date = date.SubtractDays(100);
+            date.Year.ShouldBe(1965);
+            date.Month.ShouldBe(11);
+            date.Day.ShouldBe(1);
         }
 
         #endregion Public Methods

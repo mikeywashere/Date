@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Date", "Michael\Types\Date\Date.csproj", "{99350D21-AA2B-4ED1-9F0E-FCD5DF029A12}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DateUnitTests", "Michael\Types\UnitTests\DateUnitTests.csproj", "{306DA60D-0497-463B-9173-5B18B446445D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegerStoreDateUnitTests", "Michael\Types\UnitTests\IntegerStoreDateUnitTests.csproj", "{306DA60D-0497-463B-9173-5B18B446445D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Michael", "Michael", "{5AA40231-8E77-4533-A6F9-C58277153582}"
 EndProject
@@ -16,7 +16,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		License.txt = License.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HumanReadableDateUnitTests", "HumanReadableDateUnitTests\HumanReadableDateUnitTests.csproj", "{18431AD9-DC37-4E5D-9158-E5BC7C2D9E42}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HumanReadableStoreDateUnitTests", "HumanReadableDateUnitTests\HumanReadableStoreDateUnitTests.csproj", "{18431AD9-DC37-4E5D-9158-E5BC7C2D9E42}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{0AEC626B-6017-4463-8C2D-CCA6F5AAD19A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,9 +44,10 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{99350D21-AA2B-4ED1-9F0E-FCD5DF029A12} = {B4A68CD8-D603-4C05-A67B-99ADFA411C6E}
-		{306DA60D-0497-463B-9173-5B18B446445D} = {B4A68CD8-D603-4C05-A67B-99ADFA411C6E}
+		{306DA60D-0497-463B-9173-5B18B446445D} = {0AEC626B-6017-4463-8C2D-CCA6F5AAD19A}
 		{B4A68CD8-D603-4C05-A67B-99ADFA411C6E} = {5AA40231-8E77-4533-A6F9-C58277153582}
-		{18431AD9-DC37-4E5D-9158-E5BC7C2D9E42} = {B4A68CD8-D603-4C05-A67B-99ADFA411C6E}
+		{18431AD9-DC37-4E5D-9158-E5BC7C2D9E42} = {0AEC626B-6017-4463-8C2D-CCA6F5AAD19A}
+		{0AEC626B-6017-4463-8C2D-CCA6F5AAD19A} = {5AA40231-8E77-4533-A6F9-C58277153582}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {747AC210-0FA2-43A1-87BF-25AAF7B4C769}

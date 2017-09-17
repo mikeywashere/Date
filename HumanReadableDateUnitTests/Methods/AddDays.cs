@@ -14,10 +14,7 @@ namespace Michael.Types.UnitTests.HumanReadable.Methods
     {
         #region Public Constructors
 
-        public AddDays()
-        {
-            Date.DefaultStore = new HumanReadableDateStore();
-        }
+        private DateFactory _factory = new DateFactory(DateFactory.DateStorage.HumanReadable);
 
         #endregion Public Constructors
 
@@ -25,7 +22,7 @@ namespace Michael.Types.UnitTests.HumanReadable.Methods
 
         public void Can_call_AddDays_to_add_1_day()
         {
-            var date = new Date(1965, 11, 1);
+            var date = _factory.Create(1965, 11, 1);
             date = date.AddDays(1);
             date.Year.ShouldBe(1965);
             date.Month.ShouldBe(11);
@@ -35,16 +32,16 @@ namespace Michael.Types.UnitTests.HumanReadable.Methods
         [Fact]
         public void Can_call_AddDays_to_add_10_days()
         {
-            var date = new Date(1965, 11, 1);
-            date = date.AddDays(10);
-            date.Year.ShouldBe(1965);
-            date.Month.ShouldBe(11);
-            date.Day.ShouldBe(11);
+            var date = _factory.Create(1965, 11, 1);
+            var newDate = date.AddDays(10);
+            newDate.Year.ShouldBe(1965);
+            newDate.Month.ShouldBe(11);
+            newDate.Day.ShouldBe(11);
         }
 
         public void Can_call_AddDays_to_add_100_days()
         {
-            var date = new Date(1965, 11, 100);
+            var date = _factory.Create(1965, 11, 1);
             date = date.AddDays(100);
             date.Year.ShouldBe(1966);
             date.Month.ShouldBe(2);
