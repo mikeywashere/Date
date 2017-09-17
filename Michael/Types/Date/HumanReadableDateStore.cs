@@ -1,32 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// ************************************************************
+// Copyright Michael R. Schmidt 2017
+// See License file at /license.txt
+// ************************************************************
 
 // ReSharper disable once CheckNamespace
 namespace Michael.Types
 {
     public class HumanReadableDateStore : IDateStore<int>, IDateStore
     {
+        #region Private Fields
+
         private int _date;
+
+        #endregion Private Fields
+
+        #region Public Constructors
 
         public HumanReadableDateStore()
         {
         }
- 
-        private int ToYear()
-        {
-            return _date / 10000;
-        }
 
-        private int ToMonth()
-        {
-            return _date / 100 - (ToYear() * 100);
-        }
+        #endregion Public Constructors
 
-        private int ToDay()
-        {
-            return _date - (ToYear() * 10000 + ToMonth() * 100);
-        }
+        #region Public Properties
 
         public IDate Date
         {
@@ -37,8 +33,29 @@ namespace Michael.Types
             }
         }
 
-        object IDateStore.Raw => Raw;
-
         public int Raw => _date;
+
+        #endregion Public Properties
+
+        #region Private Methods
+
+        private int ToDay()
+        {
+            return _date - (ToYear() * 10000 + ToMonth() * 100);
+        }
+
+        private int ToMonth()
+        {
+            return _date / 100 - (ToYear() * 100);
+        }
+
+        private int ToYear()
+        {
+            return _date / 10000;
+        }
+
+        #endregion Private Methods
+
+        object IDateStore.Raw => Raw;
     }
 }

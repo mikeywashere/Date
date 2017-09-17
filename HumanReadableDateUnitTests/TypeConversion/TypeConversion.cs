@@ -7,11 +7,21 @@ using Shouldly;
 using System;
 using Xunit;
 
-namespace Michael.Types.UnitTests.TypeConversion
+// ReSharper disable once CheckNamespace
+namespace Michael.Types.UnitTests.HumanReadable.TypeConversion
 {
-    [Trait("Store", "Integer")]
+    [Trait("Store", "HumanReadable")]
     public class TypeConversion
     {
+        #region Public Constructors
+
+        public TypeConversion()
+        {
+            Date.DefaultStore = new HumanReadableDateStore();
+        }
+
+        #endregion Public Constructors
+
         #region Public Methods
 
         [Fact]

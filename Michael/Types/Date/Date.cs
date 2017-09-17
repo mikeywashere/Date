@@ -1,18 +1,22 @@
-﻿using System;
-using System.Dynamic;
+﻿// ************************************************************
+// Copyright Michael R. Schmidt 2017
+// See License file at /license.txt
+// ************************************************************
+
+using System;
 
 // ReSharper disable once CheckNamespace
 namespace Michael.Types
 {
     public class Date : IDate
     {
+        #region Private Fields
+
         private readonly IDateStore _store;
 
-        public static IDateStore DefaultStore
-        {
-            get;
-            set;
-        }
+        #endregion Private Fields
+
+        #region Public Constructors
 
         public Date() : this(DefaultStore ?? new IntegerDateStore())
         {
@@ -32,27 +36,56 @@ namespace Michael.Types
         {
         }
 
-        private static int ToInt(int year, int month, int day)
+        #endregion Public Constructors
+
+        #region Public Properties
+
+        public static IDateStore DefaultStore
         {
-            var date = new DateTime(year, month, day);
-            return Convert.ToInt32(date.Subtract(DateTime.MinValue).TotalDays);
+            get;
+            set;
         }
 
-        private static DateTime ToDate(int days)
-        {
-            return DateTime.MinValue.AddDays(days);
-        }
+        public int Day => _store.Date.Day;
+
+        public int Month => _store.Date.Month;
+
+        public int Year => _store.Date.Year;
+
+        #endregion Public Properties
+
+        #region Public Methods
 
         public static explicit operator DateTime(Date date)
         {
             return new DateTime(date.Year, date.Month, date.Day);
         }
 
+        public static Date operator +(Date date, int days)
+        {
+            return date.AddDays(days);
+        }
+
         public Date AddDays(int daysToAdd)
         {
-            var dateTime = (DateTime) this;
+            var dateTime = (DateTime)this;
             dateTime = dateTime.AddDays(daysToAdd);
             return new Date(dateTime);
+        }
+
+        #endregion Public Methods
+
+        #region Private Methods
+
+        private static DateTime ToDate(int days)
+        {
+            return DateTime.MinValue.AddDays(days);
+        }
+
+        private static int ToInt(int year, int month, int day)
+        {
+            var date = new DateTime(year, month, day);
+            return Convert.ToInt32(date.Subtract(DateTime.MinValue).TotalDays);
         }
 
         private static (int Year, int Month, int Day) ToYearMonthDay(int days)
@@ -61,17 +94,6 @@ namespace Michael.Types
             return (dateTime.Year, dateTime.Month, dateTime.Day);
         }
 
-        public int Year => _store.Date.Year;
-
-        public int Month => _store.Date.Month;
-
-        public int Day => _store.Date.Day;
-
-        #region operator overloading
-        public static Date operator +(Date date, int days)
-        {
-            return date.AddDays(days);
-        }
-        #endregion
+        #endregion Private Methods
     }
 }

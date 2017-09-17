@@ -1,14 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xunit;
-using Michael.Types;
+﻿// ************************************************************
+// Copyright Michael R. Schmidt 2017
+// See License file at /license.txt
+// ************************************************************
+
 using Shouldly;
+using Xunit;
 
 namespace Michael.Types.UnitTests.OperatorOverload
 {
-    class Plus
+    [Trait("Store", "Integer")]
+    public class Plus
     {
+        #region Public Methods
+
         [Fact]
         public void Can_call_operator_overload_plus_to_add_1_day()
         {
@@ -39,5 +43,6 @@ namespace Michael.Types.UnitTests.OperatorOverload
             date.Day.ShouldBe(9);
         }
 
+        #endregion Public Methods
     }
 }

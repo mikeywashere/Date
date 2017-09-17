@@ -1,14 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// ************************************************************
+// Copyright Michael R. Schmidt 2017
+// See License file at /license.txt
+// ************************************************************
+
+using System;
 
 // ReSharper disable once CheckNamespace
 namespace Michael.Types
 {
     public class IntegerDateStore : IDateStore<int>, IDateStore
     {
-        private int _days;
+        #region Private Fields
+
         private readonly DateTime _startOn;
+        private int _days;
+
+        #endregion Private Fields
+
+        #region Public Constructors
 
         public IntegerDateStore()
         {
@@ -24,6 +33,10 @@ namespace Michael.Types
         {
         }
 
+        #endregion Public Constructors
+
+        #region Public Properties
+
         public IDate Date
         {
             get => new RawDate(_startOn.AddDays(_days));
@@ -34,8 +47,9 @@ namespace Michael.Types
             }
         }
 
+        public int Raw => _days;
         object IDateStore.Raw => Raw;
 
-        public int Raw => _days;
+        #endregion Public Properties
     }
 }

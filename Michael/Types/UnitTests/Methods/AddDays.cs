@@ -1,12 +1,18 @@
-﻿using System;
-using Xunit;
-using Michael.Types;
+﻿// ************************************************************
+// Copyright Michael R. Schmidt 2017
+// See License file at /license.txt
+// ************************************************************
+
 using Shouldly;
+using Xunit;
 
 namespace Michael.Types.UnitTests.Methods
 {
+    [Trait("Store", "Integer")]
     public class AddDays
     {
+        #region Public Methods
+
         [Fact]
         public void Can_call_AddDays_to_add_1_day()
         {
@@ -36,6 +42,6 @@ namespace Michael.Types.UnitTests.Methods
             date.Day.ShouldBe(9);
         }
 
-
+        #endregion Public Methods
     }
 }
