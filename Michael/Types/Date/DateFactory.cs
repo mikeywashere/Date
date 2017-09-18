@@ -45,7 +45,6 @@ namespace Michael.Types
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-            return null;
         }
 
         public Date Create()
@@ -53,15 +52,24 @@ namespace Michael.Types
             return new Date(GetStorage());
         }
 
-        public Date Create(int year, int month, int day)
+        public Date Create(IDateStore storage, int year, int month, int day)
         {
             return new Date(GetStorage(), year, month, day);
         }
 
-        public Date Create(DateTime dateTime)
+        public Date Create(int year, int month, int day)
         {
-            return Create(dateTime.Year, dateTime.Month, dateTime.Day);
+            return Create(GetStorage(), year, month, day);
         }
 
+        public Date Create(IDateStore storage, DateTime dateTime)
+        {
+            return Create(storage, dateTime.Year, dateTime.Month, dateTime.Day);
+        }
+
+        public Date Create(DateTime dateTime)
+        {
+            return Create(GetStorage(), dateTime.Year, dateTime.Month, dateTime.Day);
+        }
     }
 }

@@ -23,7 +23,11 @@ namespace Michael.Types
             _store = store;
         }
 
-        public Date() : this(DateStore ?? new IntegerDateStore()) { }
+        public Date()
+        {
+            if (_store == null)
+                _store = new IntegerDateStore();
+        }
 
         public Date(int year, int month, int day) : this()
         {
@@ -39,15 +43,16 @@ namespace Michael.Types
             _store.Date = new RawDate(year, month, day);
         }
 
+        public Date(IDateStore store, DateTime dateTime) : this(store, dateTime.Year, dateTime.Month, dateTime.Day)
+        {
+        }
+
 
         #endregion Public Constructors
 
         #region Public Properties
 
-        public static IDateStore DateStore
-        {
-            get;
-        }
+        public IDateStore DateStore => _store;
 
         public int Day => _store.Date.Day;
 
