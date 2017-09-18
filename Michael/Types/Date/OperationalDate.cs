@@ -9,5 +9,7 @@ namespace Michael.Types
         Date AddDays(int days);
 
         Date SubtractDays(int days);
+
+        IEnumerable<IOperationalDate> Range(IDate startDate, IDate endDate);
     }
 }

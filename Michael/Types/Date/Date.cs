@@ -4,6 +4,7 @@
 // ************************************************************
 
 using System;
+using System.Collections.Generic;
 
 // ReSharper disable once CheckNamespace
 namespace Michael.Types
@@ -39,7 +40,7 @@ namespace Michael.Types
         }
 
         public Date(IDateStore store, int year, int month, int day) : this(store)
-        { 
+        {
             _store.Date = new RawDate(year, month, day);
         }
 
@@ -88,6 +89,42 @@ namespace Michael.Types
             return new Date(newDateTime);
         }
 
+        public static bool operator <(Date left, IDate right)
+        {
+            return 
+                left.Year < right.Year ||
+
+                (left.Year == right.Year &&
+                    left.Month < right.Month) ||
+
+                (left.Year == right.Year &&
+                    left.Month == right.Month &&
+                    left.Day < right.Day);
+        }
+
+        public static bool operator >(Date left, IDate right)
+        {
+            return 
+                left.Year > right.Year ||
+
+                (left.Year == right.Year &&
+                 left.Month > right.Month) ||
+
+                (left.Year == right.Year &&
+                 left.Month == right.Month &&
+                 left.Day > right.Day);
+        }
+
+
+        public IEnumerable<IOperationalDate> Range(IDate startDate, IDate endDate)
+        {
+            var current = (Date)startDate;
+            while (current < endDate)
+            {
+                yield return current;
+                current = current + 1;
+            }
+        }
 
         #endregion Public Methods
 
