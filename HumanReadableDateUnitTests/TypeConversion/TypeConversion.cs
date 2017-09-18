@@ -15,10 +15,7 @@ namespace Michael.Types.UnitTests.HumanReadable.TypeConversion
     {
         #region Public Constructors
 
-        public TypeConversion()
-        {
-            Date.DefaultStore = new HumanReadableDateStore();
-        }
+        private DateFactory _factory = new DateFactory(DateFactory.DateStorage.HumanReadable);
 
         #endregion Public Constructors
 
@@ -27,7 +24,7 @@ namespace Michael.Types.UnitTests.HumanReadable.TypeConversion
         [Fact]
         public void Can_convert_to_DateTime()
         {
-            var date = new Date(1965, 11, 1);
+            var date = _factory.Create(1965, 11, 1);
             var dateTime = (DateTime)date;
             dateTime.Year.ShouldBe(1965);
             dateTime.Month.ShouldBe(11);

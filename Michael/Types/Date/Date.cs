@@ -4,11 +4,12 @@
 // ************************************************************
 
 using System;
+using System.Collections.Generic;
 
 // ReSharper disable once CheckNamespace
 namespace Michael.Types
 {
-    public class Date : IDate
+    public class Date : IOperationalDate
     {
         #region Private Fields
 
@@ -18,13 +19,15 @@ namespace Michael.Types
 
         #region Public Constructors
 
-        public Date() : this(DefaultStore ?? new IntegerDateStore())
-        {
-        }
-
         public Date(IDateStore store)
         {
             _store = store;
+        }
+
+        public Date()
+        {
+            if (_store == null)
+                _store = new IntegerDateStore();
         }
 
         public Date(int year, int month, int day) : this()
@@ -36,15 +39,21 @@ namespace Michael.Types
         {
         }
 
+        public Date(IDateStore store, int year, int month, int day) : this(store)
+        {
+            _store.Date = new RawDate(year, month, day);
+        }
+
+        public Date(IDateStore store, DateTime dateTime) : this(store, dateTime.Year, dateTime.Month, dateTime.Day)
+        {
+        }
+
+
         #endregion Public Constructors
 
         #region Public Properties
 
-        public static IDateStore DefaultStore
-        {
-            get;
-            set;
-        }
+        public IDateStore DateStore => _store;
 
         public int Day => _store.Date.Day;
 
@@ -69,8 +78,52 @@ namespace Michael.Types
         public Date AddDays(int daysToAdd)
         {
             var dateTime = (DateTime)this;
-            dateTime = dateTime.AddDays(daysToAdd);
-            return new Date(dateTime);
+            var newDateTime = dateTime.AddDays(daysToAdd);
+            return new Date(newDateTime);
+        }
+
+        public Date SubtractDays(int daysToSubtract)
+        {
+            var dateTime = (DateTime)this;
+            var newDateTime = dateTime.Subtract(TimeSpan.FromDays(daysToSubtract));
+            return new Date(newDateTime);
+        }
+
+        public static bool operator <(Date left, IDate right)
+        {
+            return 
+                left.Year < right.Year ||
+
+                (left.Year == right.Year &&
+                    left.Month < right.Month) ||
+
+                (left.Year == right.Year &&
+                    left.Month == right.Month &&
+                    left.Day < right.Day);
+        }
+
+        public static bool operator >(Date left, IDate right)
+        {
+            return 
+                left.Year > right.Year ||
+
+                (left.Year == right.Year &&
+                 left.Month > right.Month) ||
+
+                (left.Year == right.Year &&
+                 left.Month == right.Month &&
+                 left.Day > right.Day);
+        }
+
+
+        public IEnumerable<IOperationalDate> Range(IDate startDate, IDate endDate)
+        {
+            var current = (Date)startDate;
+            while (current < endDate)
+            {
+                yield return current;
+                current = current + 1;
+            }
         }
 
         #endregion Public Methods

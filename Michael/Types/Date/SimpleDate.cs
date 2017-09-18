@@ -19,12 +19,8 @@ namespace Michael.Types
             Day = day;
         }
 
-        public RawDate(DateTime dateTime)
-        {
-            Year = dateTime.Year;
-            Month = dateTime.Month;
-            Day = dateTime.Day;
-        }
+        public RawDate(DateTime dateTime) : this(dateTime.Year, dateTime.Month, dateTime.Day)
+        { }
 
         #endregion Public Constructors
 
