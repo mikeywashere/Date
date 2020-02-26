@@ -1,5 +1,5 @@
 ﻿// ************************************************************
-// Copyright Michael R. Schmidt 2017
+// Copyright Michael R. Schmidt 2020
 // See License file at /license.txt
 // ************************************************************
 
@@ -10,14 +10,8 @@ namespace Michael.Types
 {
     public class IntegerDateStore : IDateStore<int>, IDateStore
     {
-        #region Private Fields
-
         private readonly DateTime _startOn;
         private int _days;
-
-        #endregion Private Fields
-
-        #region Public Constructors
 
         public IntegerDateStore()
         {
@@ -33,10 +27,6 @@ namespace Michael.Types
         {
         }
 
-        #endregion Public Constructors
-
-        #region Public Properties
-
         public IDate Date
         {
             get => new RawDate(_startOn.AddDays(_days));
@@ -49,7 +39,5 @@ namespace Michael.Types
 
         public int Raw => _days;
         object IDateStore.Raw => Raw;
-
-        #endregion Public Properties
     }
 }

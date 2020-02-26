@@ -1,25 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Michael.Types;
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Michael.Types;
 
 namespace DateExample
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             DateFactory factory = new DateFactory(DateFactory.DateStorage.HumanReadable);
             var startDate = factory.Create(1965, 11, 1);
             var endDate = factory.Create(DateTime.Now);
             var count = 0;
-            foreach (var day in startDate.Range(startDate, endDate))
+            var range = startDate.RangeTo(endDate);
+            foreach (var day in range)
             {
                 count++;
             }
-            Console.WriteLine($"I am {count} days old.");
+
+            Console.WriteLine($"My count and the range count are {((range.Count() == count) ? string.Empty : "not ")}the same.");
+
+            Console.WriteLine($"I am {count:#,#} days old.");
             Console.ReadKey();
         }
     }

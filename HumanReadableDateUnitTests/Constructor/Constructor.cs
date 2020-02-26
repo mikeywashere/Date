@@ -1,5 +1,5 @@
 // ************************************************************
-// Copyright Michael R. Schmidt 2017
+// Copyright Michael R. Schmidt 2020
 // See License file at /license.txt
 // ************************************************************
 
@@ -12,13 +12,7 @@ namespace Michael.Types.UnitTests.HumanReadable
     [Trait("Store", "HumanReadable")]
     public class Constructor
     {
-        #region Public Constructors
-
         private DateFactory _factory = new DateFactory(DateFactory.DateStorage.HumanReadable);
-
-        #endregion Public Constructors
-
-        #region Public Methods
 
         [Fact]
         public void Can_call_constructor_with_three_part_date()
@@ -46,7 +40,5 @@ namespace Michael.Types.UnitTests.HumanReadable
             var date = _factory.Create(1965, 11, 1);
             date.Year.ShouldBe(1965);
         }
-
-        #endregion Public Methods
     }
 }

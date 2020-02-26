@@ -1,5 +1,5 @@
 ﻿// ************************************************************
-// Copyright Michael R. Schmidt 2017
+// Copyright Michael R. Schmidt 2020
 // See License file at /license.txt
 // ************************************************************
 
@@ -12,13 +12,7 @@ namespace Michael.Types.UnitTests.HumanReadable.Methods
     [Trait("Store", "HumanReadable")]
     public class SubtractDays
     {
-        #region Public Constructors
-
         private readonly DateFactory _factory = new DateFactory(DateFactory.DateStorage.HumanReadable);
-
-        #endregion Public Constructors
-
-        #region Public Methods
 
         public void Can_call_SubtractDays_to_subtract_1_day()
         {
@@ -47,7 +41,5 @@ namespace Michael.Types.UnitTests.HumanReadable.Methods
             date.Month.ShouldBe(11);
             date.Day.ShouldBe(1);
         }
-
-        #endregion Public Methods
     }
 }

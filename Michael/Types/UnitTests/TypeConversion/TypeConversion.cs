@@ -1,5 +1,5 @@
 // ************************************************************
-// Copyright Michael R. Schmidt 2017
+// Copyright Michael R. Schmidt 2020
 // See License file at /license.txt
 // ************************************************************
 
@@ -14,9 +14,6 @@ namespace Michael.Types.UnitTests.TypeConversion
     {
         private DateFactory _factory = new DateFactory(DateFactory.DateStorage.Integer);
 
-
-        #region Public Methods
-
         [Fact]
         public void Can_convert_to_DateTime()
         {
@@ -26,7 +23,5 @@ namespace Michael.Types.UnitTests.TypeConversion
             dateTime.Month.ShouldBe(11);
             dateTime.Day.ShouldBe(1);
         }
-
-        #endregion Public Methods
     }
 }

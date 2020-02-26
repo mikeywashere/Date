@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 // ReSharper disable once CheckNamespace
 namespace Michael.Types
@@ -40,8 +38,10 @@ namespace Michael.Types
             {
                 case (DateStorage.Integer):
                     return new IntegerDateStore();
+
                 case (DateStorage.HumanReadable):
                     return new HumanReadableDateStore();
+
                 default:
                     throw new ArgumentOutOfRangeException();
             }

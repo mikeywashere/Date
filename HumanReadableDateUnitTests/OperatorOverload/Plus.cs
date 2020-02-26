@@ -1,5 +1,5 @@
 ﻿// ************************************************************
-// Copyright Michael R. Schmidt 2017
+// Copyright Michael R. Schmidt 2020
 // See License file at /license.txt
 // ************************************************************
 
@@ -12,13 +12,7 @@ namespace Michael.Types.UnitTests.HumanReadable.OperatorOverload
     [Trait("Store", "HumanReadable")]
     public class Plus
     {
-        #region Public Constructors
-
         private readonly DateFactory _factory = new DateFactory(DateFactory.DateStorage.HumanReadable);
-
-        #endregion Public Constructors
-
-        #region Public Methods
 
         [Fact]
         public void Can_call_operator_overload_plus_to_add_1_day()
@@ -49,7 +43,5 @@ namespace Michael.Types.UnitTests.HumanReadable.OperatorOverload
             date.Month.ShouldBe(2);
             date.Day.ShouldBe(9);
         }
-
-        #endregion Public Methods
     }
 }

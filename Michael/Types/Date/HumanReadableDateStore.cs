@@ -1,5 +1,5 @@
 ﻿// ************************************************************
-// Copyright Michael R. Schmidt 2017
+// Copyright Michael R. Schmidt 2020
 // See License file at /license.txt
 // ************************************************************
 
@@ -11,17 +11,7 @@ namespace Michael.Types
         private const int MonthMask = 100;
         private const int YearMask = 10000;
 
-        #region Private Fields
-
         private int _date;
-
-        #endregion Private Fields
-
-        #region Public Constructors
-
-        #endregion Public Constructors
-
-        #region Public Properties
 
         public IDate Date
         {
@@ -34,8 +24,6 @@ namespace Michael.Types
         }
 
         public int Raw => _date;
-
-        #endregion Public Properties
 
         object IDateStore.Raw => Raw;
     }

@@ -1,5 +1,5 @@
 ﻿// ************************************************************
-// Copyright Michael R. Schmidt 2017
+// Copyright Michael R. Schmidt 2020
 // See License file at /license.txt
 // ************************************************************
 
@@ -11,13 +11,7 @@ namespace Michael.Types
 {
     public class Date : IOperationalDate
     {
-        #region Private Fields
-
         private readonly IDateStore _store;
-
-        #endregion Private Fields
-
-        #region Public Constructors
 
         public Date(IDateStore store)
         {
@@ -48,11 +42,6 @@ namespace Michael.Types
         {
         }
 
-
-        #endregion Public Constructors
-
-        #region Public Properties
-
         public IDateStore DateStore => _store;
 
         public int Day => _store.Date.Day;
@@ -60,10 +49,6 @@ namespace Michael.Types
         public int Month => _store.Date.Month;
 
         public int Year => _store.Date.Year;
-
-        #endregion Public Properties
-
-        #region Public Methods
 
         public static explicit operator DateTime(Date date)
         {
@@ -91,7 +76,7 @@ namespace Michael.Types
 
         public static bool operator <(Date left, IDate right)
         {
-            return 
+            return
                 left.Year < right.Year ||
 
                 (left.Year == right.Year &&
@@ -104,7 +89,7 @@ namespace Michael.Types
 
         public static bool operator >(Date left, IDate right)
         {
-            return 
+            return
                 left.Year > right.Year ||
 
                 (left.Year == right.Year &&
@@ -115,7 +100,6 @@ namespace Michael.Types
                  left.Day > right.Day);
         }
 
-
         public IEnumerable<IOperationalDate> Range(IDate startDate, IDate endDate)
         {
             var current = (Date)startDate;
@@ -125,10 +109,6 @@ namespace Michael.Types
                 current = current + 1;
             }
         }
-
-        #endregion Public Methods
-
-        #region Private Methods
 
         private static DateTime ToDate(int days)
         {
@@ -146,7 +126,5 @@ namespace Michael.Types
             var dateTime = ToDate(days);
             return (dateTime.Year, dateTime.Month, dateTime.Day);
         }
-
-        #endregion Private Methods
     }
 }

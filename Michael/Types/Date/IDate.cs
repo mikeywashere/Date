@@ -1,5 +1,5 @@
 ﻿// ************************************************************
-// Copyright Michael R. Schmidt 2017
+// Copyright Michael R. Schmidt 2020
 // See License file at /license.txt
 // ************************************************************
 
@@ -8,12 +8,8 @@ namespace Michael.Types
 {
     public interface IDate
     {
-        #region Public Properties
-
         int Day { get; }
         int Month { get; }
         int Year { get; }
-
-        #endregion Public Properties
     }
 }

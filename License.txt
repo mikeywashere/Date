@@ -1,6 +1,6 @@
-Michael.Type.Date License
+Michael.Types.Date License
 
-Copyright © 2017 Michael R. Schmidt
+Copyright © 2020 Michael R. Schmidt
 
 This software is provided 'as-is', without any express or implied warranty.
 In no event will the authors be held liable for any damages arising from the use of this software.
@@ -16,7 +16,6 @@ Altered source versions must be plainly marked as such, and must not be misrepre
 This notice may not be removed or altered from any source distribution.
 
 Inspiration for this library comes from several projects that I have worked on that stored dates as integers.
-And most recently from Craig Fisher who I am very much enjoying working with.
 
 License Note
 
