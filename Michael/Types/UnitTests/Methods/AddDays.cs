@@ -11,10 +11,7 @@ namespace Michael.Types.UnitTests.Methods
     [Trait("Store", "Integer")]
     public class AddDays
     {
-
         private DateFactory _factory = new DateFactory(DateFactory.DateStorage.Integer);
-
-        #region Public Methods
 
         [Fact]
         public void Can_call_AddDays_to_add_1_day()
@@ -44,7 +41,5 @@ namespace Michael.Types.UnitTests.Methods
             date.Month.ShouldBe(2);
             date.Day.ShouldBe(9);
         }
-
-        #endregion Public Methods
     }
 }

@@ -15,9 +15,9 @@ namespace Michael.Types
 
         public IDate Date
         {
-            get => 
+            get =>
                 new RawDate(
-                    _date / YearMask, 
+                    _date / YearMask,
                     _date / MonthMask - _date / YearMask * MonthMask,
                     _date - (_date / MonthMask) * MonthMask);
             set => _date = value.Year * YearMask + value.Month * MonthMask + value.Day;
