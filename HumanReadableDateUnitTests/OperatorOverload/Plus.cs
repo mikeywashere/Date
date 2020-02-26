@@ -6,7 +6,6 @@
 using Shouldly;
 using Xunit;
 
-// ReSharper disable once CheckNamespace
 namespace Michael.Types.UnitTests.HumanReadable.OperatorOverload
 {
     [Trait("Store", "HumanReadable")]

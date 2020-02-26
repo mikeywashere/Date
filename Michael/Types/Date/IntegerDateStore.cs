@@ -5,7 +5,6 @@
 
 using System;
 
-// ReSharper disable once CheckNamespace
 namespace Michael.Types
 {
     public class IntegerDateStore : IDateStore<int>, IDateStore

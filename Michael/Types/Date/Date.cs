@@ -6,7 +6,6 @@
 using System;
 using System.Collections.Generic;
 
-// ReSharper disable once CheckNamespace
 namespace Michael.Types
 {
     public class Date : IOperationalDate

@@ -3,7 +3,6 @@
 // See License file at /license.txt
 // ************************************************************
 
-// ReSharper disable once CheckNamespace
 namespace Michael.Types
 {
     public interface IDateStore<out T>

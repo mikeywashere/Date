@@ -5,7 +5,6 @@
 
 using System.Collections.Generic;
 
-// ReSharper disable once CheckNamespace
 namespace Michael.Types
 {
     public static class DateExt

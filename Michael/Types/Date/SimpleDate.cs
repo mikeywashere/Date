@@ -5,7 +5,6 @@
 
 using System;
 
-// ReSharper disable once CheckNamespace
 namespace Michael.Types
 {
     public class RawDate : IDate

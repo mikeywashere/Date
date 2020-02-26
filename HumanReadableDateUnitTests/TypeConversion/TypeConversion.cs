@@ -7,7 +7,6 @@ using Shouldly;
 using System;
 using Xunit;
 
-// ReSharper disable once CheckNamespace
 namespace Michael.Types.UnitTests.HumanReadable.TypeConversion
 {
     [Trait("Store", "HumanReadable")]
