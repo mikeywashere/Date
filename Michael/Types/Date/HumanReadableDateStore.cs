@@ -8,7 +8,7 @@ namespace Michael.Types
     /// <summary>
     /// Big Endian date store
     /// </summary>
-    public class HumanReadableDateStore : IDateStore<int>, IDateStore
+    public class BigEndianDateStore : IDateStore<int>, IDateStore
     {
         private const int MonthMask = 100;
         private const int YearMask = 10000;

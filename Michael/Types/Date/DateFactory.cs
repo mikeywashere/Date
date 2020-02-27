@@ -39,7 +39,7 @@ namespace Michael.Types
                     return new IntegerDateStore();
 
                 case (DateStorage.HumanReadable):
-                    return new HumanReadableDateStore();
+                    return new BigEndianDateStore();
 
                 default:
                     throw new ArgumentOutOfRangeException();
