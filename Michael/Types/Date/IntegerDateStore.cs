@@ -26,7 +26,7 @@ namespace Michael.Types
         {
         }
 
-        public IDate Date
+        public IIntDate IntDate
         {
             get => new RawDate(_startOn.AddDays(_days));
             set

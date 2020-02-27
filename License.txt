@@ -1,4 +1,4 @@
-Michael.Types.Date License
+Michael.Types.IntDate License
 
 Copyright © 2020 Michael R. Schmidt
 
@@ -20,7 +20,7 @@ Inspiration for this library comes from several projects that I have worked on t
 License Note
 
 This license is based on the open source nuget and therefore zlib/libpng license. 
-The idea was to keep the license as simple as possible to encourage use of Michael.Types.Date in free and commercial applications and libraries, 
-but to keep the source code together and to give credit to the Michael.Types.Date contributors for their efforts. 
-While this license allows shipping Michael.Types.Date in source and binary form, 
-if shipping a Michael.Types.Date variant is the sole purpose of your product, please just say no, and do let us know.
+The idea was to keep the license as simple as possible to encourage use of Michael.Types.IntDate in free and commercial applications and libraries, 
+but to keep the source code together and to give credit to the Michael.Types.IntDate contributors for their efforts. 
+While this license allows shipping Michael.Types.IntDate in source and binary form, 
+if shipping a Michael.Types.IntDate variant is the sole purpose of your product, please just say no, and do let us know.

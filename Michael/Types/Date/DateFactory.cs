@@ -6,11 +6,13 @@ namespace Michael.Types
     {
         public enum DateStorage
         {
-            Integer,
-            HumanReadable
+            SequentialInteger,
+            BigEndian
         }
 
-        public static DateStorage Storage
+        private DateStorage Storage { get; set; }
+
+        public static DateStorage SequentialInteger
         {
             get;
             private set;
@@ -18,7 +20,7 @@ namespace Michael.Types
 
         public DateFactory()
         {
-            Storage = DateStorage.Integer;
+            Storage = DateStorage.SequentialInteger;
         }
 
         public DateFactory(DateStorage store)
@@ -35,10 +37,10 @@ namespace Michael.Types
         {
             switch (Storage)
             {
-                case (DateStorage.Integer):
+                case (DateStorage.SequentialInteger):
                     return new IntegerDateStore();
 
-                case (DateStorage.HumanReadable):
+                case (DateStorage.BigEndian):
                     return new BigEndianDateStore();
 
                 default:
@@ -46,27 +48,27 @@ namespace Michael.Types
             }
         }
 
-        public Date Create()
+        public IntDate Create()
         {
-            return new Date(GetStorage());
+            return new IntDate(GetStorage());
         }
 
-        public Date Create(IDateStore storage, int year, int month, int day)
+        public IntDate Create(IDateStore storage, int year, int month, int day)
         {
-            return new Date(GetStorage(), year, month, day);
+            return new IntDate(GetStorage(), year, month, day);
         }
 
-        public Date Create(int year, int month, int day)
+        public IntDate Create(int year, int month, int day)
         {
             return Create(GetStorage(), year, month, day);
         }
 
-        public Date Create(IDateStore storage, DateTime dateTime)
+        public IntDate Create(IDateStore storage, DateTime dateTime)
         {
             return Create(storage, dateTime.Year, dateTime.Month, dateTime.Day);
         }
 
-        public Date Create(DateTime dateTime)
+        public IntDate Create(DateTime dateTime)
         {
             return Create(GetStorage(), dateTime.Year, dateTime.Month, dateTime.Day);
         }

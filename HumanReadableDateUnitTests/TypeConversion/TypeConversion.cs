@@ -12,7 +12,7 @@ namespace Michael.Types.UnitTests.HumanReadable.TypeConversion
     [Trait("Store", "HumanReadable")]
     public class TypeConversion
     {
-        private DateFactory _factory = new DateFactory(DateFactory.DateStorage.HumanReadable);
+        private DateFactory _factory = new DateFactory(DateFactory.DateStorage.BigEndian);
 
         [Fact]
         public void Can_convert_to_DateTime()

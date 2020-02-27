@@ -7,14 +7,14 @@ namespace Michael.Types
 {
     public interface IDateStore<out T>
     {
-        IDate Date { get; set; }
+        IIntDate IntDate { get; set; }
 
         T Raw { get; }
     }
 
     public interface IDateStore
     {
-        IDate Date { get; set; }
+        IIntDate IntDate { get; set; }
 
         object Raw { get; }
     }

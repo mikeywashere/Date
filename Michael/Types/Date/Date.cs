@@ -8,72 +8,72 @@ using System.Collections.Generic;
 
 namespace Michael.Types
 {
-    public class Date : IOperationalDate
+    public class IntDate : IOperationalDate
     {
         private readonly IDateStore _store;
 
-        public Date(IDateStore store)
+        public IntDate(IDateStore store)
         {
             _store = store;
         }
 
-        public Date()
+        public IntDate()
         {
             if (_store == null)
                 _store = new IntegerDateStore();
         }
 
-        public Date(int year, int month, int day) : this()
+        public IntDate(int year, int month, int day) : this()
         {
-            _store.Date = new RawDate(year, month, day);
+            _store.IntDate = new RawDate(year, month, day);
         }
 
-        public Date(DateTime dateTime) : this(dateTime.Year, dateTime.Month, dateTime.Day)
+        public IntDate(DateTime dateTime) : this(dateTime.Year, dateTime.Month, dateTime.Day)
         {
         }
 
-        public Date(IDateStore store, int year, int month, int day) : this(store)
+        public IntDate(IDateStore store, int year, int month, int day) : this(store)
         {
-            _store.Date = new RawDate(year, month, day);
+            _store.IntDate = new RawDate(year, month, day);
         }
 
-        public Date(IDateStore store, DateTime dateTime) : this(store, dateTime.Year, dateTime.Month, dateTime.Day)
+        public IntDate(IDateStore store, DateTime dateTime) : this(store, dateTime.Year, dateTime.Month, dateTime.Day)
         {
         }
 
         public IDateStore DateStore => _store;
 
-        public int Day => _store.Date.Day;
+        public int Day => _store.IntDate.Day;
 
-        public int Month => _store.Date.Month;
+        public int Month => _store.IntDate.Month;
 
-        public int Year => _store.Date.Year;
+        public int Year => _store.IntDate.Year;
 
-        public static explicit operator DateTime(Date date)
+        public static explicit operator DateTime(IntDate date)
         {
             return new DateTime(date.Year, date.Month, date.Day);
         }
 
-        public static Date operator +(Date date, int days)
+        public static IntDate operator +(IntDate date, int days)
         {
             return date.AddDays(days);
         }
 
-        public Date AddDays(int daysToAdd)
+        public IntDate AddDays(int daysToAdd)
         {
             var dateTime = (DateTime)this;
             var newDateTime = dateTime.AddDays(daysToAdd);
-            return new Date(newDateTime);
+            return new IntDate(newDateTime);
         }
 
-        public Date SubtractDays(int daysToSubtract)
+        public IntDate SubtractDays(int daysToSubtract)
         {
             var dateTime = (DateTime)this;
             var newDateTime = dateTime.Subtract(TimeSpan.FromDays(daysToSubtract));
-            return new Date(newDateTime);
+            return new IntDate(newDateTime);
         }
 
-        public static bool operator <(Date left, IDate right)
+        public static bool operator <(IntDate left, IIntDate right)
         {
             return
                 left.Year < right.Year ||
@@ -86,7 +86,7 @@ namespace Michael.Types
                     left.Day < right.Day);
         }
 
-        public static bool operator >(Date left, IDate right)
+        public static bool operator >(IntDate left, IIntDate right)
         {
             return
                 left.Year > right.Year ||
@@ -99,9 +99,9 @@ namespace Michael.Types
                  left.Day > right.Day);
         }
 
-        public IEnumerable<IOperationalDate> Range(IDate startDate, IDate endDate)
+        public IEnumerable<IOperationalDate> Range(IIntDate startDate, IIntDate endDate)
         {
-            var current = (Date)startDate;
+            var current = (IntDate)startDate;
             while (current < endDate)
             {
                 yield return current;

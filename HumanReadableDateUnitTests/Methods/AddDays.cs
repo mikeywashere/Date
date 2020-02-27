@@ -11,7 +11,7 @@ namespace Michael.Types.UnitTests.HumanReadable.Methods
     [Trait("Store", "HumanReadable")]
     public class AddDays
     {
-        private DateFactory _factory = new DateFactory(DateFactory.DateStorage.HumanReadable);
+        private DateFactory _factory = new DateFactory(DateFactory.DateStorage.BigEndian);
 
         public void Can_call_AddDays_to_add_1_day()
         {

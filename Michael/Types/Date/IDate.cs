@@ -5,7 +5,7 @@
 
 namespace Michael.Types
 {
-    public interface IDate
+    public interface IIntDate
     {
         int Day { get; }
         int Month { get; }

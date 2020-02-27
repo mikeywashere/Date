@@ -4,14 +4,21 @@
     <TargetFramework>netstandard1.6</TargetFramework>
     <AssemblyName>Michael.Types.Date</AssemblyName>
     <RootNamespace>Michael.Types</RootNamespace>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <LangVersion>7.1</LangVersion>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.ValueTuple" Version="4.4.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis" Version="3.4.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
   </ItemGroup>
 
 </Project>

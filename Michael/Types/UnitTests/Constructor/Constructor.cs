@@ -11,7 +11,7 @@ namespace Michael.Types.UnitTests.Constructor
     [Trait("Store", "Integer")]
     public class Constructor
     {
-        private DateFactory _factory = new DateFactory(DateFactory.DateStorage.Integer);
+        private DateFactory _factory = new DateFactory(DateFactory.DateStorage.SequentialInteger);
 
         [Fact]
         public void Can_call_constructor_with_three_part_date()

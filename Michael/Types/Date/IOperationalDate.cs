@@ -2,12 +2,12 @@
 
 namespace Michael.Types
 {
-    public interface IOperationalDate : IDate
+    public interface IOperationalDate : IIntDate
     {
-        Date AddDays(int days);
+        IntDate AddDays(int days);
 
-        Date SubtractDays(int days);
+        IntDate SubtractDays(int days);
 
-        IEnumerable<IOperationalDate> Range(IDate startDate, IDate endDate);
+        IEnumerable<IOperationalDate> Range(IIntDate startDate, IIntDate endDate);
     }
 }

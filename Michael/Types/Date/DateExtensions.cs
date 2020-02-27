@@ -9,9 +9,9 @@ namespace Michael.Types
 {
     public static class DateExt
     {
-        public static IEnumerable<IOperationalDate> RangeTo(this IDate startDate, IDate endDate)
+        public static IEnumerable<IOperationalDate> RangeTo(this IIntDate startDate, IIntDate endDate)
         {
-            var current = (Date)startDate;
+            var current = (IntDate)startDate;
             while (current < endDate)
             {
                 yield return current;

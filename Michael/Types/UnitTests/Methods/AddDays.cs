@@ -11,7 +11,7 @@ namespace Michael.Types.UnitTests.Methods
     [Trait("Store", "Integer")]
     public class AddDays
     {
-        private DateFactory _factory = new DateFactory(DateFactory.DateStorage.Integer);
+        private DateFactory _factory = new DateFactory(DateFactory.DateStorage.SequentialInteger);
 
         [Fact]
         public void Can_call_AddDays_to_add_1_day()

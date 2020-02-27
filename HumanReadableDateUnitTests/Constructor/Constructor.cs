@@ -11,7 +11,7 @@ namespace Michael.Types.UnitTests.HumanReadable
     [Trait("Store", "HumanReadable")]
     public class Constructor
     {
-        private DateFactory _factory = new DateFactory(DateFactory.DateStorage.HumanReadable);
+        private DateFactory _factory = new DateFactory(DateFactory.DateStorage.BigEndian);
 
         [Fact]
         public void Can_call_constructor_with_three_part_date()

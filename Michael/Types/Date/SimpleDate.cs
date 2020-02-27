@@ -7,7 +7,7 @@ using System;
 
 namespace Michael.Types
 {
-    public class RawDate : IDate
+    public class RawDate : IIntDate
     {
         public RawDate(int year, int month, int day)
         {

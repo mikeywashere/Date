@@ -11,7 +11,7 @@ namespace Michael.Types.UnitTests.HumanReadable.Methods
     [Trait("Store", "HumanReadable")]
     public class SubtractDays
     {
-        private readonly DateFactory _factory = new DateFactory(DateFactory.DateStorage.HumanReadable);
+        private readonly DateFactory _factory = new DateFactory(DateFactory.DateStorage.BigEndian);
 
         public void Can_call_SubtractDays_to_subtract_1_day()
         {

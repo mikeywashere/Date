@@ -6,7 +6,7 @@
 namespace Michael.Types
 {
     /// <summary>
-    /// Big Endian date store
+    /// Big Endian IntDate store
     /// </summary>
     public class BigEndianDateStore : IDateStore<int>, IDateStore
     {
@@ -15,7 +15,7 @@ namespace Michael.Types
 
         private int _date;
 
-        public IDate Date
+        public IIntDate IntDate
         {
             get =>
                 new RawDate(
