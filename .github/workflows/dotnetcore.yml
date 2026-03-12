@@ -31,6 +31,10 @@ jobs:
         run: dotnet test --configuration Release --no-build --verbosity normal
         working-directory: source
 
+      - name: Pack
+        run: dotnet pack --configuration Release --verbosity normal
+        working-directory: source
+
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
@@ -48,6 +52,10 @@ jobs:
         run: dotnet test --configuration Release --no-build --verbosity normal
         working-directory: source
 
+      - name: Pack
+        run: dotnet pack --configuration Release --verbosity normal
+        working-directory: source
+
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
@@ -63,4 +71,8 @@ jobs:
 
       - name: Run tests
         run: dotnet test --configuration Release --no-build --verbosity normal
+        working-directory: source
+
+      - name: Pack
+        run: dotnet pack --configuration Release --verbosity normal
         working-directory: source
