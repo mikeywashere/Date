@@ -47,6 +47,7 @@ namespace Michael.Types.UnitTests.Methods
         // Verify adding 100 days correctly advances into the next year and
         // month. This method is not marked with [Fact] in the original
         // suite so it will not run unless the attribute is added.
+        [Fact]
         public void Can_call_AddDays_to_add_100_days()
         {
             var date = _factory.Create(1965, 11, 1);

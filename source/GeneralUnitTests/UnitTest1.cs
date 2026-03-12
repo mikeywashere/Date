@@ -31,9 +31,18 @@ public class UnitTest1
         // ensures the enumerable can be iterated without throwing and yields
         // one item per day in the interval.
         var count = 0;
-        var range = startDate.RangeTo(endDate);
-        foreach (var day in range)
+        var current = startDate;
+        while (true)
         {
+            var thisDate = startDate.AddDays(count);
+            Assert.Equal(thisDate.Day, current.Day); // Optional: verify each day matches expected value
+            Assert.Equal(thisDate.Month, current.Month); // Optional: verify each day matches expected value
+            Assert.Equal(thisDate.Year, current.Year); // Optional: verify each day matches expected value
+
+            if (current.Day == endDate.Day && current.Month == endDate.Month && current.Year == endDate.Year)
+                break;
+
+            current = current.AddDays(1);
             count++;
         }
     }
@@ -53,9 +62,21 @@ public class UnitTest1
         var endDate = factory.Create(DateTime.Now);
 
         var count = 0;
-        var range = startDate.RangeTo(endDate);
-        foreach (var day in range)
+        var current = startDate;
+        while (true)
         {
+            // the test
+            var thisDate = startDate.AddDays(count);
+            Assert.Equal(thisDate.Day, current.Day); // Optional: verify each day matches expected value
+            Assert.Equal(thisDate.Month, current.Month); // Optional: verify each day matches expected value
+            Assert.Equal(thisDate.Year, current.Year); // Optional: verify each day matches expected value
+
+            // do we exit
+            if (current.Day == endDate.Day && current.Month == endDate.Month && current.Year == endDate.Year)
+                break;
+
+            // add a day and continue
+            current = current.AddDays(1);
             count++;
         }
     }

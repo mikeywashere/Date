@@ -18,6 +18,7 @@ namespace Michael.Types.UnitTests.HumanReadable.Methods
         // Verify subtracting a single day yields the expected year/month/day
         // components. This method is not marked with [Fact] in the original
         // suite, so it will not run unless the attribute is added.
+        [Fact]
         public void Can_call_SubtractDays_to_subtract_1_day()
         {
             var date = _factory.Create(1965, 11, 2);
@@ -47,6 +48,7 @@ namespace Michael.Types.UnitTests.HumanReadable.Methods
         // and month as expected. Like the first method, this one is not
         // decorated with [Fact] and therefore won't run unless the attribute
         // is added.
+        [Fact]
         public void Can_call_SubtractDays_to_subtract_100_days()
         {
             var date = _factory.Create(1966, 2, 9);
