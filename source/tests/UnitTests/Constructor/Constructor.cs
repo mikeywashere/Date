@@ -52,7 +52,7 @@ namespace Michael.Types.UnitTests
         public void Can_call_constructor_with_three_part_date_and_get_back_correct_year()
         {
             var date = _factory.Create(1965, 11, 1);
-            Assert.Equal(1, date.Year);
+            Assert.Equal(1965, date.Year);
         }
     }
 }
