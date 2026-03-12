@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Michael\Types\Date\Date.csproj" />
+    <ProjectReference Include="..\Michael\Types\Date\FlexDate.csproj" />
   </ItemGroup>
 
 </Project>

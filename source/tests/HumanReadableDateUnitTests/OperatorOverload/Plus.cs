@@ -16,7 +16,7 @@ namespace Michael.Types.UnitTests.HumanReadable.OperatorOverload
 
         // Factory configured to produce BigEndian-backed IntDate instances so
         // the tests exercise the human-readable storage behavior.
-        private readonly DateFactory _factory = new DateFactory(DateFactory.DateStorage.BigEndian);
+        private readonly FlexDateFactory _factory = new FlexDateFactory(FlexDateFactory.DateStorage.HumanReadable);
 
         // Verify that adding one day using the overloaded '+' operator returns
         // a new date with the expected year/month/day components.

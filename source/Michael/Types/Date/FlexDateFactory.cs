@@ -12,7 +12,7 @@ namespace Michael.Types
     /// (sequential integer representation or big-endian/human-readable storage)
     /// so callers don't need to know the concrete store type.
     /// </summary>
-    public class DateFactory
+    public class FlexDateFactory
     {
         /// <summary>
         /// Supported storage/serialization strategies for dates.
@@ -25,26 +25,18 @@ namespace Michael.Types
             SequentialInteger,
 
             /// <summary>
-            /// Use a big-endian, human readable store (year-month-day fields).
+            /// Use a human readable store (year-month-day fields).
             /// </summary>
-            BigEndian
+            HumanReadable
         }
 
         // The currently configured storage strategy for this factory instance.
         private DateStorage Storage { get; set; }
 
-        // Note: this static property appears unused but preserved to avoid
-        // changing public surface area. It is not initialized here.
-        public static DateStorage SequentialInteger
-        {
-            get;
-            private set;
-        }
-
         /// <summary>
         /// Create a factory that defaults to SequentialInteger storage.
         /// </summary>
-        public DateFactory()
+        public FlexDateFactory()
         {
             Storage = DateStorage.SequentialInteger;
         }
@@ -53,7 +45,7 @@ namespace Michael.Types
         /// Create a factory configured to use the provided storage strategy.
         /// </summary>
         /// <param name="store">Storage strategy to use for created dates.</param>
-        public DateFactory(DateStorage store)
+        public FlexDateFactory(DateStorage store)
         {
             Storage = store;
         }
@@ -80,7 +72,7 @@ namespace Michael.Types
                     // (typically days since a fixed epoch).
                     return new IntegerDateStore();
 
-                case (DateStorage.BigEndian):
+                case (DateStorage.HumanReadable):
                     // BigEndianDateStore stores separate year/month/day fields.
                     return new BigEndianDateStore();
 

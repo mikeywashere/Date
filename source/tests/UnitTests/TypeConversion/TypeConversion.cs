@@ -20,7 +20,7 @@ namespace Michael.Types.UnitTests.TypeConversion
         // instances. The factory is not used in this specific test which
         // constructs an IntDate directly, but is kept to mirror other test
         // classes and for potential future tests.
-        private DateFactory _factory = new DateFactory(DateFactory.DateStorage.SequentialInteger);
+        private FlexDateFactory _factory = new FlexDateFactory(FlexDateFactory.DateStorage.SequentialInteger);
 
         // Verify that an IntDate can be explicitly converted to DateTime and
         // that the resulting DateTime preserves the year/month/day

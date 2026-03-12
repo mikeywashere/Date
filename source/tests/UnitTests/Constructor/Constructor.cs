@@ -17,7 +17,7 @@ namespace Michael.Types.UnitTests
         // instances. Using the factory keeps the tests independent of the
         // concrete IDateStore implementation while explicitly exercising the
         // integer-based storage strategy.
-        private readonly DateFactory _factory = new DateFactory(DateFactory.DateStorage.SequentialInteger);
+        private readonly FlexDateFactory _factory = new FlexDateFactory(FlexDateFactory.DateStorage.SequentialInteger);
 
         // Ensure that constructing a date with explicit year/month/day does
         // not throw and returns a valid date instance. This test is primarily

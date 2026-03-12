@@ -17,7 +17,7 @@ namespace Michael.Types.UnitTests.Methods
         // Factory configured to create SequentialInteger-backed IntDate
         // instances. Using the factory keeps tests independent of the
         // concrete storage implementation.
-        private DateFactory _factory = new DateFactory(DateFactory.DateStorage.SequentialInteger);
+        private FlexDateFactory _factory = new FlexDateFactory(FlexDateFactory.DateStorage.SequentialInteger);
 
         // Verify adding one day produces the expected year/month/day values.
         [Fact]

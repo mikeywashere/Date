@@ -18,7 +18,7 @@ namespace Michael.Types.UnitTests.OperatorOverload
         // instances. Using the factory keeps the tests independent of the
         // concrete storage implementation while explicitly exercising the
         // integer-based behavior.
-        private DateFactory _factory = new DateFactory(DateFactory.DateStorage.SequentialInteger);
+        private FlexDateFactory _factory = new FlexDateFactory(FlexDateFactory.DateStorage.SequentialInteger);
 
         // Verify that adding one day via the overloaded '+' operator returns
         // a new IntDate with the expected year/month/day components.

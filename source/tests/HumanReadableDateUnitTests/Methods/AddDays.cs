@@ -13,7 +13,7 @@ namespace Michael.Types.UnitTests.HumanReadable.Methods
         // Factory configured to create BigEndian (human-readable) backed
         // IntDate instances. Tests in this class use the factory so they
         // remain independent of the concrete store implementation.
-        private readonly DateFactory _factory = new DateFactory(DateFactory.DateStorage.BigEndian);
+        private readonly FlexDateFactory _factory = new FlexDateFactory(FlexDateFactory.DateStorage.HumanReadable);
 
         // Verify adding one day produces the expected year/month/day values.
         // Note: this method currently does not have a [Fact] attribute in the

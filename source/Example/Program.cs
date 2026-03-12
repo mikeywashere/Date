@@ -8,7 +8,7 @@ namespace DateExample
     {
         private static void Main(string[] args)
         {
-            DateFactory factory = new DateFactory(DateFactory.DateStorage.BigEndian);
+            FlexDateFactory factory = new FlexDateFactory(FlexDateFactory.DateStorage.HumanReadable);
             var startDate = factory.Create(1965, 11, 1);
             var endDate = factory.Create(DateTime.Now);
             var count = 0;

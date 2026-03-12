@@ -14,7 +14,7 @@ namespace Michael.Types.UnitTests.HumanReadable.TypeConversion
         // Factory configured to produce BigEndian (human-readable) backed
         // IntDate instances. Using the factory keeps tests decoupled from
         // the concrete store implementation and makes intent explicit.
-        private DateFactory _factory = new DateFactory(DateFactory.DateStorage.BigEndian);
+        private FlexDateFactory _factory = new FlexDateFactory(FlexDateFactory.DateStorage.HumanReadable);
 
         // Verify that an IntDate produced by the human-readable store can be
         // converted to a System.DateTime and preserves the correct
