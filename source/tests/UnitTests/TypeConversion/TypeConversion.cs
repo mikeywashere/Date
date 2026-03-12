@@ -3,7 +3,6 @@
 // See License file at /license.txt
 // ************************************************************
 
-using Shouldly;
 using System;
 using Xunit;
 
@@ -19,9 +18,9 @@ namespace Michael.Types.UnitTests.TypeConversion
         {
             var date = new IntDate(1965, 11, 1);
             var dateTime = (DateTime)date;
-            dateTime.Year.ShouldBe(1965);
-            dateTime.Month.ShouldBe(11);
-            dateTime.Day.ShouldBe(1);
+            Assert.Equal(1965, dateTime.Year);
+            Assert.Equal(11, dateTime.Month);
+            Assert.Equal(1, dateTime.Day);
         }
     }
 }

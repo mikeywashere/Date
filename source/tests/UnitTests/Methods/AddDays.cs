@@ -3,7 +3,6 @@
 // See License file at /license.txt
 // ************************************************************
 
-using Shouldly;
 using Xunit;
 
 namespace Michael.Types.UnitTests.Methods
@@ -18,9 +17,9 @@ namespace Michael.Types.UnitTests.Methods
         {
             var date = _factory.Create(1965, 11, 1);
             date = date.AddDays(1);
-            date.Year.ShouldBe(1965);
-            date.Month.ShouldBe(11);
-            date.Day.ShouldBe(2);
+            Assert.Equal(1965, date.Year);
+            Assert.Equal(11, date.Month);
+            Assert.Equal(2, date.Day);
         }
 
         [Fact]
@@ -28,18 +27,18 @@ namespace Michael.Types.UnitTests.Methods
         {
             var date = _factory.Create(1965, 11, 1);
             date = date.AddDays(10);
-            date.Year.ShouldBe(1965);
-            date.Month.ShouldBe(11);
-            date.Day.ShouldBe(11);
+            Assert.Equal(1965, date.Year);
+            Assert.Equal(11, date.Month);
+            Assert.Equal(11, date.Day);
         }
 
         public void Can_call_AddDays_to_add_100_days()
         {
             var date = _factory.Create(1965, 11, 1);
             date = date.AddDays(100);
-            date.Year.ShouldBe(1966);
-            date.Month.ShouldBe(2);
-            date.Day.ShouldBe(9);
+            Assert.Equal(1966, date.Year);
+            Assert.Equal(2, date.Month);
+            Assert.Equal(9, date.Day);
         }
     }
 }

@@ -34,6 +34,8 @@ namespace Michael.Types
 
         public IntDate(IDateStore store, int year, int month, int day) : this(store)
         {
+            _store = _store ?? throw new ArgumentNullException(nameof(store));
+
             _store.IntDate = new RawDate(year, month, day);
         }
 
@@ -105,7 +107,7 @@ namespace Michael.Types
             while (current < endDate)
             {
                 yield return current;
-                current = current + 1;
+                current += 1;
             }
         }
 

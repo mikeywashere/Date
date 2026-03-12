@@ -18,9 +18,10 @@ namespace DateExample
                 count++;
             }
 
-            Console.WriteLine($"My count and the range count are {((range.Count() == count) ? string.Empty : "not ")}the same.");
+            Console.WriteLine($"{Environment.NewLine}My count and the range count are {((range.Count() == count) ? string.Empty : "not ")}the same.");
 
             Console.WriteLine($"I am {count:#,#} days old.");
+            Console.WriteLine($"Press any key...");
             Console.ReadKey();
         }
     }
