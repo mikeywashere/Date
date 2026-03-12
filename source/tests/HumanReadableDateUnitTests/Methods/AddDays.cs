@@ -18,6 +18,7 @@ namespace Michael.Types.UnitTests.HumanReadable.Methods
         // Verify adding one day produces the expected year/month/day values.
         // Note: this method currently does not have a [Fact] attribute in the
         // original test suite; if you want it executed by xUnit add [Fact].
+        [Fact]
         public void Can_call_AddDays_to_add_1_day()
         {
             var date = _factory.Create(1965, 11, 1);
@@ -46,6 +47,7 @@ namespace Michael.Types.UnitTests.HumanReadable.Methods
         // Verify adding 100 days correctly advances into the next year and
         // month. Like the first test, this method is not marked [Fact] so it
         // won't run unless the attribute is added.
+        [Fact]
         public void Can_call_AddDays_to_add_100_days()
         {
             var date = _factory.Create(1965, 11, 1);

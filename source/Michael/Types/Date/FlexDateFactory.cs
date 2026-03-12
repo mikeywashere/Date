@@ -65,22 +65,14 @@ namespace Michael.Types
         /// </summary>
         private IDateStore GetStorage()
         {
-            switch (Storage)
+            return Storage switch
             {
-                case (DateStorage.SequentialInteger):
-                    // IntegerDateStore represents dates as a single integer value
-                    // (typically days since a fixed epoch).
-                    return new IntegerDateStore();
-
-                case (DateStorage.HumanReadable):
-                    // BigEndianDateStore stores separate year/month/day fields.
-                    return new BigEndianDateStore();
-
-                default:
-                    // Defensive programming: thrown if the enum contains an
-                    // unexpected value.
-                    throw new ArgumentOutOfRangeException();
-            }
+                (DateStorage.SequentialInteger) => new IntegerDateStore(),// IntegerDateStore represents dates as a single integer value
+                                                                          // (typically days since a fixed epoch).
+                (DateStorage.HumanReadable) => new BigEndianDateStore(),// BigEndianDateStore stores separate year/month/day fields.
+                _ => throw new ArgumentOutOfRangeException(),// Defensive programming: thrown if the enum contains an
+                                                             // unexpected value.
+            };
         }
 
         /// <summary>
