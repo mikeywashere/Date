@@ -1,4 +1,9 @@
-﻿using Michael.Types;
+﻿// ************************************************************
+// Copyright Michael R. Schmidt 2020
+// See License file at /license.txt
+// ************************************************************
+
+using Michael.Types;
 
 namespace GeneralUnitTests;
 
@@ -57,13 +62,13 @@ public class UnitTest1
         // storage representation (for example: days since an epoch).
         FlexDateFactory factory = new FlexDateFactory(FlexDateFactory.DateStorage.SequentialInteger);
 
-        // Same start/end pair as above; iterate the range and count items.
+        // Compute the start date/end date
         var startDate = factory.Create(1965, 11, 1);
-        var endDate = factory.Create(DateTime.Now);
+        var endDate = factory.Create(DateTime.MaxValue);
 
         var count = 0;
         var current = startDate;
-        while (true)
+        while (startDate < endDate)
         {
             // the test
             var thisDate = startDate.AddDays(count);
@@ -71,12 +76,8 @@ public class UnitTest1
             Assert.Equal(thisDate.Month, current.Month); // Optional: verify each day matches expected value
             Assert.Equal(thisDate.Year, current.Year); // Optional: verify each day matches expected value
 
-            // do we exit
-            if (current.Day == endDate.Day && current.Month == endDate.Month && current.Year == endDate.Year)
-                break;
-
             // add a day and continue
-            current = current.AddDays(1);
+            current += 1; // Assuming operator overload for adding days exists; otherwise use AddDays(1)
             count++;
         }
     }

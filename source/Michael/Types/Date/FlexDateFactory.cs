@@ -2,7 +2,6 @@
 // Copyright Michael R. Schmidt 2020
 // See License file at /license.txt
 // ************************************************************
-using System;
 
 namespace Michael.Types
 {
@@ -69,7 +68,7 @@ namespace Michael.Types
             {
                 (DateStorage.SequentialInteger) => new IntegerDateStore(),// IntegerDateStore represents dates as a single integer value
                                                                           // (typically days since a fixed epoch).
-                (DateStorage.HumanReadable) => new BigEndianDateStore(),// BigEndianDateStore stores separate year/month/day fields.
+                (DateStorage.HumanReadable) => new HumanReadableDateStore(),// BigEndianDateStore stores separate year/month/day fields.
                 _ => throw new ArgumentOutOfRangeException(),// Defensive programming: thrown if the enum contains an
                                                              // unexpected value.
             };
@@ -78,25 +77,25 @@ namespace Michael.Types
         /// <summary>
         /// Create an IntDate that uses the configured storage.
         /// </summary>
-        public IntDate Create()
+        public SequentialIntegerDate Create()
         {
-            return new IntDate(GetStorage());
+            return new SequentialIntegerDate(GetStorage());
         }
 
         /// <summary>
         /// Create an IntDate using the provided storage and specific Y/M/D parts.
         /// </summary>
-        public IntDate Create(IDateStore storage, int year, int month, int day)
+        public SequentialIntegerDate Create(IDateStore storage, int year, int month, int day)
         {
             // Note: the factory currently ignores the provided 'storage' value
             // and uses GetStorage() instead to preserve consistent behavior.
-            return new IntDate(GetStorage(), year, month, day);
+            return new SequentialIntegerDate(GetStorage(), year, month, day);
         }
 
         /// <summary>
         /// Create an IntDate using the configured storage and provided components.
         /// </summary>
-        public IntDate Create(int year, int month, int day)
+        public SequentialIntegerDate Create(int year, int month, int day)
         {
             return Create(GetStorage(), year, month, day);
         }
@@ -104,7 +103,7 @@ namespace Michael.Types
         /// <summary>
         /// Create an IntDate from a DateTime using the provided IDateStore.
         /// </summary>
-        public IntDate Create(IDateStore storage, DateTime dateTime)
+        public SequentialIntegerDate Create(IDateStore storage, DateTime dateTime)
         {
             return Create(storage, dateTime.Year, dateTime.Month, dateTime.Day);
         }
@@ -112,7 +111,7 @@ namespace Michael.Types
         /// <summary>
         /// Create an IntDate from a DateTime using the configured storage.
         /// </summary>
-        public IntDate Create(DateTime dateTime)
+        public SequentialIntegerDate Create(DateTime dateTime)
         {
             return Create(GetStorage(), dateTime.Year, dateTime.Month, dateTime.Day);
         }

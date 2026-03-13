@@ -3,24 +3,22 @@
 // See License file at /license.txt
 // ************************************************************
 
-using System;
-
 namespace Michael.Types
 {
     /// <summary>
     /// Simple immutable representation of a date as year, month and day
-    /// components. Implements <see cref="IIntDate"/> so it can be used
+    /// components. Implements <see cref="ISimpleDate"/> so it can be used
     /// by storage implementations and other date types in the library.
     /// </summary>
-    public class RawDate : IIntDate
+    public class SimpleDate : ISimpleDate
     {
         /// <summary>
-        /// Create a RawDate from explicit year, month and day components.
+        /// Create a SimpleDate from explicit year, month and day components.
         /// </summary>
         /// <param name="year">The year component (e.g. 1965).</param>
         /// <param name="month">The month component (1-12).</param>
         /// <param name="day">The day component (1-31 depending on month/year).</param>
-        public RawDate(int year, int month, int day)
+        public SimpleDate(int year, int month, int day)
         {
             Year = year;
             Month = month;
@@ -28,11 +26,19 @@ namespace Michael.Types
         }
 
         /// <summary>
-        /// Create a RawDate from a <see cref="DateTime"/>, copying the
+        /// Create a SimpleDate from a <see cref="DateTime"/>, copying the
         /// Year/Month/Day components.
         /// </summary>
         /// <param name="dateTime">The source DateTime value.</param>
-        public RawDate(DateTime dateTime) : this(dateTime.Year, dateTime.Month, dateTime.Day)
+        public SimpleDate(DateTime dateTime) : this(dateTime.Year, dateTime.Month, dateTime.Day)
+        { }
+
+        /// <summary>
+        /// Create a SimpleDate from a <see cref="DateOnly"/>, copying the
+        /// Year/Month/Day components.
+        /// </summary>
+        /// <param name="dateOnly"></param>
+        public SimpleDate(DateOnly dateOnly) : this(dateOnly.Year, dateOnly.Month, dateOnly.Day)
         { }
 
         /// <summary>

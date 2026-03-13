@@ -23,13 +23,33 @@ namespace Michael.Types
         /// Gets or sets the date as integer components (year, month, day).
         /// Implementations map this property to their internal representation.
         /// </summary>
-        IIntDate IntDate { get; set; }
+        ISimpleDate SimpleDate { get; set; }
 
         /// <summary>
         /// The raw underlying storage value for the date. The concrete type
         /// is provided by the generic parameter <typeparamref name="T"/>.
         /// </summary>
         T Raw { get; }
+
+        /// <summary>
+        /// Converts the packed integer to a <see cref="DateOnly"/> instance.
+        /// </summary>
+        /// <returns>A DateOnly representing the stored date.</returns>
+        public DateOnly ToDateOnly();
+
+        /// <summary>
+        /// Converts the packed integer to a <see cref="DateTime"/> at midnight.
+        /// </summary>
+        /// <returns>A DateTime representing the stored date at 00:00:00.</returns>
+        public DateTime ToDateTime();
+
+        /// <summary>
+        /// Converts the packed integer to a <see cref="DateTime"/> using the
+        /// supplied <see cref="TimeOnly"/> for the time component.
+        /// </summary>
+        /// <param name="time">TimeOfDay to combine with the stored date.</param>
+        /// <returns>A DateTime representing the stored date with the provided time.</returns>
+        public DateTime ToDateTime(TimeOnly time);
     }
 
     /// <summary>
@@ -42,7 +62,7 @@ namespace Michael.Types
         /// <summary>
         /// Gets or sets the date as integer components (year, month, day).
         /// </summary>
-        IIntDate IntDate { get; set; }
+        ISimpleDate SimpleDate { get; set; }
 
         /// <summary>
         /// The raw underlying storage value boxed as an object.

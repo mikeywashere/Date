@@ -37,7 +37,7 @@ namespace Michael.Types.UnitTests.HumanReadable.OperatorOverload
         [Fact]
         public void Can_call_operator_overload_plus_to_add_10_day()
         {
-            var date = new IntDate(1965, 11, 1);
+            var date = _factory.Create(1965, 11, 1);
             date = date + 10;
 
             Assert.Equal(1965, date.Year);
@@ -50,7 +50,7 @@ namespace Michael.Types.UnitTests.HumanReadable.OperatorOverload
         [Fact]
         public void Can_call_operator_overload_plus_to_add_100_day()
         {
-            var date = new IntDate(1965, 11, 1);
+            var date = _factory.Create(1965, 11, 1);
             date = date + 100;
 
             Assert.Equal(1966, date.Year);
