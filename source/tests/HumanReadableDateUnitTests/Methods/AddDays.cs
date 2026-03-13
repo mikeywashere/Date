@@ -8,7 +8,7 @@ using Xunit;
 namespace Michael.Types.UnitTests.HumanReadable.Methods
 {
     [Trait("Store", "HumanReadable")]
-    public class AddDays
+    public class AddDays_Test
     {
         // Factory configured to create BigEndian (human-readable) backed
         // IntDate instances. Tests in this class use the factory so they

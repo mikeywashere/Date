@@ -8,7 +8,7 @@ using Xunit;
 namespace Michael.Types.UnitTests.Methods
 {
     [Trait("Store", "Integer")]
-    public class AddDays
+    public class AddDays_Test
     {
         // Tests for AddDays when using the integer (sequential day count)
         // storage strategy. The Trait attribute marks these tests so they

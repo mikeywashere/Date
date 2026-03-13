@@ -5,7 +5,7 @@
 
 namespace Michael.Types
 {
-    public interface IIntDate
+    public interface ISimpleDate
     {
         /// <summary>
         /// Represents a date as integer components (year, month, day).
